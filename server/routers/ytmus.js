@@ -21,10 +21,15 @@ async function ytMusic(URL) {
     let getVideo = await page.$eval('#download > div > div > a', (element) => {
         return element.getAttribute('href');
     });
- let titleInfo = await page.$eval('body > div:nth-child(1) > div:nth-child(4) > div > div.col-md-9 > p:b:nth-child(1)', el => el.innerText);
+ let titleInfo = await page.$eval('body > div:nth-child(1) > div:nth-child(4) > div > div.col-md-9 > p:nth-child(1)', el => el.innerText);
  let sizeInfo = await page.$eval('body > div:nth-child(1) > div:nth-child(4) > div > div.col-md-9 > p:nth-child(2)', el => el.innerText); 
 	browser.close();
-    return {titleInfo, getImages, getVideo, sizeInfo}
+    return {
+	    titleInfo, 
+	    sizeInfo, 
+	    getImages, 
+	    getVideo
+	   }
 }
 
 ytmus.get('/', async (req, res) => {
