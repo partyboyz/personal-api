@@ -10,14 +10,13 @@ async function ytAudio(URL) {
     const page = await browser.newPage();
     await page.goto('https://ytmp3.cc/en13/');
         
-    await page.type('#input', `${URL}`, {delay: 300});
-    await page.waitForSelector('#submit');
-    await page.click('#submit');
-    await page.waitForSelector('#submit');
-    let getVideo = await page.$eval('body > div:nth-child(2) > div > div:nth-child(2) > a:nth-child(1)', (element) => {
+    await page.type('body > #content > #converter_wrapper > #converter > form > #input', `${URL}`, {delay: 300});
+    await page.click('body > #content > #converter_wrapper > #converter > form > #submit');
+    await page.waitForSelector('body > #content > #converter_wrapper > #converter > form > #submit');
+    let getVideo = await page.$eval('body > #content > #converter_wrapper > #converter > #buttons > a:nth-child(1)', (element) => {
         return element.getAttribute('href');
     });
-    let titleInfo = await page.$eval('#title', el => el.innerText);
+    let titleInfo = await page.$eval('body > #content > #converter_wrapper > #converter > #title', el => el.innerText);
     browser.close();
      return {
 	    titleInfo,
