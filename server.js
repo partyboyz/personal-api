@@ -9,6 +9,7 @@ var instagram = require('./server/routers/IG');
 var film = require('./server/routers/film');
 var twvid = require('./server/routers/twvid');
 var twimg = require('./server/routers/twimg');
+var ytaud = require('./server/routers/ytaud');
 
 var app = express();
 const PORT = process.env.PORT || 80;
@@ -32,6 +33,7 @@ app.use('/events', eventsRouter);
 app.use('/tiktok', tiktok);
 app.use('/ytvid', youtube);
 app.use('/ytmus', ytmus);
+app.use('/ytaud', ytaud);
 app.use('/ig', instagram);
 app.use('/twimg', twimg);
 app.use('/twvid', twvid);
