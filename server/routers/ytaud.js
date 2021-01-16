@@ -31,6 +31,7 @@ async function ytAudio(URL) {
     ytaud.get('/', async (req, res) => {
         var URL = req.query.URL;
         const gets = await ytAudio(URL);
-        res.json(gets)
+        res.json(gets);
         
     });
+    module.exports = ytaud;
