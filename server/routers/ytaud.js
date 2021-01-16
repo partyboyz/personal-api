@@ -32,3 +32,5 @@ ytaud.get('/', async (req, res) => {
     res.json(gets)
     
 });
+
+module.exports = ytaud;
