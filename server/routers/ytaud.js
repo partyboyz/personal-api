@@ -8,11 +8,11 @@ async function ytAudio(URL) {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
-    await page.goto('https://ytmp3.cc/en13/');
+    await page.goto('https://ytmp3.cc/');
         
     await page.type('body > #content > #converter_wrapper > #converter > form > input:nth-child(1)', `${URL}`);
     await page.click('body > #content > #converter_wrapper > #converter > form > #submit',  {delay: 300});
-    await page.waitForSelector('body > #content > #converter_wrapper > #converter > form > #submit');
+    await page.waitForSelector('body > #content > #converter_wrapper > #converter > #buttons > a:nth-child(1)');
     let getVideo = await page.$eval('body > #content > #converter_wrapper > #converter > #buttons > a:nth-child(1)', (element) => {
         return element.getAttribute('href');
     });
