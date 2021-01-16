@@ -1,5 +1,5 @@
-const puppeteer = require("puppeteer");
 const ytaud = require('express').Router()
+const puppeteer = require("puppeteer");
 
 async function ytAudio(URL) {
 
@@ -10,8 +10,8 @@ async function ytAudio(URL) {
     const page = await browser.newPage();
     await page.goto('https://ytmp3.cc/en13/');
         
-    await page.type('body > #content > #converter_wrapper > #converter > form > #input', `${URL}`, {delay: 300});
-    await page.click('body > #content > #converter_wrapper > #converter > form > #submit');
+    await page.type('body > #content > #converter_wrapper > #converter > form > #input', `${URL}`);
+    await page.click('body > #content > #converter_wrapper > #converter > form > #submit',  {delay: 300});
     await page.waitForSelector('body > #content > #converter_wrapper > #converter > form > #submit');
     let getVideo = await page.$eval('body > #content > #converter_wrapper > #converter > #buttons > a:nth-child(1)', (element) => {
         return element.getAttribute('href');
