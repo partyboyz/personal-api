@@ -1,7 +1,7 @@
-const ytmp3 = require('express'):
+const ytmp = require('express'):
 const puppeteer = require('puppeteer');
 
-async function ytMp3(URL) {
+async function ytMp(URL) {
     const browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -25,10 +25,10 @@ async function ytMp3(URL) {
     browser.close();
      return {Title,Link,Img,FileS}
     }
-    ytmp3.get('/', async (req, res) => {
+    ytmp.get('/', async (req, res) => {
         var URL = req.query.URL;
-        const gets = await ytMp3(URL);
+        const gets = await ytMp(URL);
         res.json(gets);
         
     });
-    module.exports = ytmp3;
+    module.exports = ytmp;
