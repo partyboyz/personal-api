@@ -1,4 +1,4 @@
-const ytmp = require('express'):
+const ytmp = require('express').Router();
 const puppeteer = require('puppeteer');
 
 async function ytMp(URL) {
