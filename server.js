@@ -35,7 +35,7 @@ app.use('/tiktok', tiktok);
 app.use('/ytvid', youtube);
 app.use('/ytmus', ytmus);
 app.use('/ytaud', ytaud);
-app.use('/ytmp3', ytmp);
+app.use('/ytmp', ytmp);
 app.use('/ig', instagram);
 app.use('/twimg', twimg);
 app.use('/twvid', twvid);
